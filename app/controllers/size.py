@@ -1,6 +1,6 @@
-from ..repositories.managers import SizeManager
+from app.factories.managers import ManagerFactory
 from .base import BaseController
 
 
 class SizeController(BaseController):
-    manager = SizeManager
+    manager = ManagerFactory.create_manager('size')
