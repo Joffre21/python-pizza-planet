@@ -35,7 +35,6 @@ def app():
     db.session.remove()
     db.drop_all()
     os.close(db_fd)
-    os.remove(dbpath)
 
 
 @pytest.fixture
