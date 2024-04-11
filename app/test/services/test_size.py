@@ -24,3 +24,12 @@ def test_get_sizes_service(client, create_sizes, size_uri):
     returned_sizes = {size['_id']: size for size in response.json}
     for size in create_sizes:
         pytest.assume(size['_id'] in returned_sizes)
+
+def test_update_size_service(client, create_size, size_uri):
+    current_size = create_size.json
+    update_data = {**current_size, 'name': get_random_string(), 'price': get_random_price(1, 5)}
+    response = client.put(size_uri, json=update_data)
+    pytest.assume(response.status.startswith('200'))
+    updated_size = response.json
+    for param, value in update_data.items():
+        pytest.assume(updated_size[param] == value)
