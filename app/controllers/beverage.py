@@ -1,6 +1,6 @@
 from app.controllers.base import BaseController
-from app.repositories.managers import BeverageManager
-
+from app.factories.managers import ManagerFactory
 
 class BeverageController(BaseController):
-    manager = BeverageManager
+    manager = ManagerFactory.create_manager('beverage')
+

@@ -1,10 +1,12 @@
 from typing import Any, Optional, Tuple
 from sqlalchemy.exc import SQLAlchemyError
-from ..repositories.managers import BaseManager
+
+from app.factories.managers import ManagerFactory
+from app.repositories.managers import BaseManager
 
 
 class BaseController:
-    manager: Optional[BaseManager] = None
+    manager: Optional[ManagerFactory] = None
 
     @classmethod
     def get_by_id(cls, _id: Any) -> Tuple[Any, Optional[str]]:

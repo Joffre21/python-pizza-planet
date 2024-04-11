@@ -150,3 +150,8 @@ migrations/
 pizza.sqlite
 .vscode/launch.json
 .vscode/tasks.json
+
+#History
+.history
+.idea
+ui
