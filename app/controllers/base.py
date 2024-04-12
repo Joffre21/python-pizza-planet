@@ -5,8 +5,7 @@ from app.factories.managers import ManagerFactory
 
 
 class BaseController:
-    basemanager = ManagerFactory.create_manager('base')
-    manager: Optional[basemanager] = None
+    manager: Optional[ManagerFactory] = None
 
     @classmethod
     def get_by_id(cls, _id: Any) -> Tuple[Any, Optional[str]]:

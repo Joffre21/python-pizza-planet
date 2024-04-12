@@ -10,6 +10,7 @@ from app.repositories.models import Ingredient, Order, OrderDetail, Size
 from .fixtures.ingredient import *
 from .fixtures.order import *
 from .fixtures.size import *
+from .fixtures.beverages import *
 
 
 @pytest.fixture
@@ -35,7 +36,6 @@ def app():
     db.session.remove()
     db.drop_all()
     os.close(db_fd)
-    os.remove(dbpath)
 
 
 @pytest.fixture
