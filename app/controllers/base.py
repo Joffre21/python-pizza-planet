@@ -2,7 +2,6 @@ from typing import Any, Optional, Tuple
 from sqlalchemy.exc import SQLAlchemyError
 
 from app.factories.managers import ManagerFactory
-from app.repositories.managers import BaseManager
 
 
 class BaseController:
