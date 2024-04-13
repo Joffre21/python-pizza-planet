@@ -25,3 +25,12 @@ def create_item(Controller):
 def update_item(Controller):
     item, error = Controller.update(request.json)
     return get_mutation_response(item, error)
+
+def get_special_report(Controller, report_type):
+    if report_type == 'ingredient':
+        item, error = Controller.get_ingredient_report()
+    elif report_type == 'month':
+        item, error = Controller.get_month_report()
+    elif report_type == 'client':
+        item, error = Controller.get_client_report()
+    return get_retrieve_response(item, error)
