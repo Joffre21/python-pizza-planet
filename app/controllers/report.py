@@ -54,7 +54,7 @@ class ReportController():
     @staticmethod
     def get_month_dict():
         orders = ReportController.order_manager.get_all()
-        month_dict = {datetime.strptime(order.get('date'), '%Y-%m-%dT%H:%M:%S.%f').strftime('%B %y'): 0 for order in orders}
+        month_dict = {datetime.strptime(order.get('date'), '%Y-%m-%dT%H:%M:%S.%f').strftime('%B %Y'): 0 for order in orders}
         return month_dict
     
     @staticmethod
@@ -68,7 +68,7 @@ class ReportController():
         response_dict = month_dict
         orders = ReportController.order_manager.get_all()
         for order in orders:
-            date = datetime.strptime(order.get('date'), '%Y-%m-%dT%H:%M:%S.%f').strftime('%B %y')
+            date = datetime.strptime(order.get('date'), '%Y-%m-%dT%H:%M:%S.%f').strftime('%B %Y')
             if date in month_dict:
                 response_dict[date] = response_dict[date] + order.get('total_price')
         return response_dict
